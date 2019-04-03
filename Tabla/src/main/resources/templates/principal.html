@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Tabla de usuarios</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Usuarios</h1>
+
+
+<table border="1px">
+
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Contenido</th>
+        <th>Email</th>
+        <th>Borrar Usuario</th>
+        <th>Modificar Usuario</th>
+
+    </tr>
+<!-- usuario es el elemento de la lista de Users que se corresponde con la clase Usuario (entidad)-->
+
+    <tr th:each = "usuario: ${Users}">
+        <td th:text="${usuario.id}" ></td>
+        <td th:text="${usuario.name}" ></td>
+        <td th:text="${usuario.content}" ></td>
+        <td th:text="${usuario.email}" ></td>
+        <td ><a th:href="@{/borrar/} + ${usuario.id}">Borrar</a> </td>
+        <td ><a th:href="@{/modificar/} + ${usuario.id}">Modificar</a> </td>
+
+    </tr>
+
+
+
+</table>
+
+
+</body>
+</html>
